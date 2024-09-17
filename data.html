@@ -377,19 +377,19 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion">1. Justificación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limpieza-de-datos">2. Limpieza de datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda">2. Análisis exploratorio de datos (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda">3. Análisis exploratorio de datos (EDA)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-para-el-top-5-mejores-clientes">Nivel de servicio para el Top 5 mejores clientes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-por-conductor">Nivel de servicio por conductor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-materiales-transportados-por-los-conductores">Análisis de materiales transportados por los conductores</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-la-serie-de-tiempo">3. Preparación de la serie de tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-la-serie-de-tiempo">4. Preparación de la serie de tiempo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-en-el-tiempo-del-nivel-de-servicio">Cambios en el tiempo del nivel de servicio</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargas-reservadas-al-dia-por-los-despachadores">Cargas reservadas al día por los despachadores</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-cargas-planeadas-por-entregar-por-dia">Número de cargas planeadas por entregar por día</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">3. Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">5. Conclusiones</a></li>
 </ul>
             </nav>
         </div>
@@ -538,7 +538,7 @@ Hay 36 clientes únicos
 </div>
 </section>
 <section id="analisis-exploratorio-de-datos-eda">
-<h2>2. Análisis exploratorio de datos (EDA)<a class="headerlink" href="#analisis-exploratorio-de-datos-eda" title="Link to this heading">#</a></h2>
+<h2>3. Análisis exploratorio de datos (EDA)<a class="headerlink" href="#analisis-exploratorio-de-datos-eda" title="Link to this heading">#</a></h2>
 <p>Ya teniendo la base de datos limpia, con la información que necesitamos, podemos realizar un análisis corto de los datos:</p>
 <section id="nivel-de-servicio-para-el-top-5-mejores-clientes">
 <h3>Nivel de servicio para el Top 5 mejores clientes<a class="headerlink" href="#nivel-de-servicio-para-el-top-5-mejores-clientes" title="Link to this heading">#</a></h3>
@@ -559,7 +559,10 @@ Hay 36 clientes únicos
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de cargas transportadas para nuestro mejor cliente: 60.1764705882353
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de cargas transportadas para nuestro mejor cliente:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 60.1764705882353
 </pre></div>
 </div>
 </div>
@@ -665,9 +668,7 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: 
   if pd.api.types.is_categorical_dtype(vector):
 C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
   if pd.api.types.is_categorical_dtype(vector):
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
@@ -897,7 +898,7 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 </section>
 </section>
 <section id="preparacion-de-la-serie-de-tiempo">
-<h2>3. Preparación de la serie de tiempo<a class="headerlink" href="#preparacion-de-la-serie-de-tiempo" title="Link to this heading">#</a></h2>
+<h2>4. Preparación de la serie de tiempo<a class="headerlink" href="#preparacion-de-la-serie-de-tiempo" title="Link to this heading">#</a></h2>
 <p>En este estudio, no tendremos en cuentas las sugerencias de mejoras planteadas durante el análisis exploratorio. Sino que observaremos el análisis de capacidad/demanda en el tiempo, que parece ser el verdadero problema de raíz de la empresa. No en la cantidad de conductores y camiones disponibles, pero en la planeación, ejecución y seguimiento de las rutas. Para eso prepararemos nuestros datos en el formato que una serie de tiempo lo requiere.</p>
 <section id="cambios-en-el-tiempo-del-nivel-de-servicio">
 <h3>Cambios en el tiempo del nivel de servicio<a class="headerlink" href="#cambios-en-el-tiempo-del-nivel-de-servicio" title="Link to this heading">#</a></h3>
@@ -1027,7 +1028,7 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 </section>
 </section>
 <section id="conclusiones">
-<h2>3. Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<h2>5. Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
 <p>Esto del análisis de las fechas de entrega y reserva de carga, además debe estar acompañado con un análisis en el tiempo de la cantidad de camiones y conductores con que cuento para cada etapa, en su retención, adquisición o despido/venta del recurso. Esto podría suponer la integración de distintas series de tiempo que influyen la una sobre la otra. La cantidad de cargas reservadas con respecto a la cantidad de cargas que se deben entregar por día y la cantidad de recursos que utilizo y requiero para ir cumpliendo con esas entregas.</p>
 <p>Una buena organización y planeación de este aspecto, me permitiría entonces cumplir de mejor manera con el nivel de servicio de mis clientes, asegurar la confiabilidad que tengan sobre mi operación y mantener la rentabilidad y competitividad en el mercado. En el caso particular de mi trabajo, es este tal cual el enfoque al que queremos apuntarle. Conocer el estado actual de su operación, proponer mejoras en la planeación de las rutass, ejecución en la búsqueda de cargas y el seguimiento por parte del despachador, de manera que se puedan generar alternativa por si es necesario reprogramar o cancelar una carga o se mantenga un seguimiento más fuerte sobre el driver que permita disminuir el desperdicio de tiempo.</p>
 </section>
@@ -1090,19 +1091,19 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion">1. Justificación</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limpieza-de-datos">2. Limpieza de datos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda">2. Análisis exploratorio de datos (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos-eda">3. Análisis exploratorio de datos (EDA)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-para-el-top-5-mejores-clientes">Nivel de servicio para el Top 5 mejores clientes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-por-conductor">Nivel de servicio por conductor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-materiales-transportados-por-los-conductores">Análisis de materiales transportados por los conductores</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-la-serie-de-tiempo">3. Preparación de la serie de tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-la-serie-de-tiempo">4. Preparación de la serie de tiempo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-en-el-tiempo-del-nivel-de-servicio">Cambios en el tiempo del nivel de servicio</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargas-reservadas-al-dia-por-los-despachadores">Cargas reservadas al día por los despachadores</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-cargas-planeadas-por-entregar-por-dia">Número de cargas planeadas por entregar por día</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">3. Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">5. Conclusiones</a></li>
 </ul>
   </nav></div>
 
