@@ -615,9 +615,7 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: 
   if pd.api.types.is_categorical_dtype(vector):
 C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
   if pd.api.types.is_categorical_dtype(vector):
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
@@ -682,7 +680,9 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: 
   if pd.api.types.is_categorical_dtype(vector):
 C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
   if pd.api.types.is_categorical_dtype(vector):
-C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
 C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
   with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
@@ -1069,7 +1069,8 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 <p>Exploremos el comportamiento de la serie actualmente, y verifiquemos si existen tendencias o estacionalidades en los datos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">index</span>
+<span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
 <span class="n">ts2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span>
 <span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frecuencia: &quot;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="p">)</span>
@@ -1077,7 +1078,41 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frecuencia:  None
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">index</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ts2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\envs\myenv\lib\site-packages\pandas\core\generic.py:6202,</span> in <span class="ni">NDFrame.__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6195</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6196</span>     <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_internal_names_set</span>
+<span class="g g-Whitespace">   </span><span class="mi">6197</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span>
+<span class="g g-Whitespace">   </span><span class="mi">6198</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
+<span class="g g-Whitespace">   </span><span class="mi">6199</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6200</span> <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">6201</span>     <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">6202</span> <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\envs\myenv\lib\site-packages\pandas\core\accessor.py:224,</span> in <span class="ni">CachedAccessor.__get__</span><span class="nt">(self, obj, cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span> <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="c1"># we&#39;re accessing the attribute of the class, i.e., Dataset.geo</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span>
+<span class="ne">--&gt; </span><span class="mi">224</span> <span class="n">accessor_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="c1"># Replace the property with the accessor object. Inspired by:</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span> <span class="c1"># https://www.pydanny.com/cached-property.html</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="c1"># We need to use object.__setattr__ because we overwrite __setattr__ on</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span> <span class="c1"># NDFrame</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="n">accessor_obj</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\envs\myenv\lib\site-packages\pandas\core\indexes\accessors.py:608,</span> in <span class="ni">CombinedDatetimelikeProperties.__new__</span><span class="nt">(cls, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">PeriodDtype</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>     <span class="k">return</span> <span class="n">PeriodProperties</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">608</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Can only use .dt accessor with datetimelike values&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: Can only use .dt accessor with datetimelike values
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1160,7 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0007403479302402483
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002102082665802807
 </pre></div>
 </div>
 </div>
@@ -1143,18 +1178,17 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-1000.,     0.,  1000.,  2000.,  3000.,  4000.,  5000.,  6000.]),
- [Text(-1000.0, 0, &#39;2020-08&#39;),
-  Text(0.0, 0, &#39;2019-09&#39;),
-  Text(1000.0, 0, &#39;2019-11&#39;),
-  Text(2000.0, 0, &#39;2020-01&#39;),
-  Text(3000.0, 0, &#39;2020-07&#39;),
-  Text(4000.0, 0, &#39;2020-08&#39;),
-  Text(5000.0, 0, &#39;&#39;),
-  Text(6000.0, 0, &#39;&#39;)])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-20.,   0.,  20.,  40.,  60.,  80., 100.]),
+ [Text(-20.0, 0, &#39;2020-07&#39;),
+  Text(0.0, 0, &#39;2019-03&#39;),
+  Text(20.0, 0, &#39;2019-08&#39;),
+  Text(40.0, 0, &#39;2019-12&#39;),
+  Text(60.0, 0, &#39;2020-05&#39;),
+  Text(80.0, 0, &#39;2020-10&#39;),
+  Text(100.0, 0, &#39;&#39;)])
 </pre></div>
 </div>
-<img alt="_images/6e0455c77eaa138e92c948260c6cc564704d28d56ceab9a9b25481371b3fb3da.png" src="_images/6e0455c77eaa138e92c948260c6cc564704d28d56ceab9a9b25481371b3fb3da.png" />
+<img alt="_images/3aa477718ee5cd1caf1bc1493711d78a4b09e31e9f7dd57242e49aa5eac16eed.png" src="_images/3aa477718ee5cd1caf1bc1493711d78a4b09e31e9f7dd57242e49aa5eac16eed.png" />
 </div>
 </div>
 <p>El R2 del modelo de regresión lineal es bastante bajo, no se ajusta en absoluto a los valores de la serie de tiempo. No existe ni tendencia ni estacionalidad en los datos. Comprobemos qué dicta la prueba de Dickey-Fuller con respecto a la estacionariedad de esta serie.</p>
@@ -1167,11 +1201,6 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1924879690639473e-29
-</pre></div>
-</div>
-</div>
 </div>
 <p>En este caso la serie es estacionaria. Ya comprobamos con esto porqué en definitiva no muestra tendencias y estacionalidades. Podemos realizar un análisis de cuartiles para ver mejor su comportamiento.</p>
 <div class="cell docutils container">
@@ -1179,19 +1208,6 @@ C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: 
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">]</span>
 <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
 <span class="n">series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    4929.000000
-mean        1.119497
-std         0.569200
-min         1.000000
-25%         1.000000
-50%         1.000000
-75%         1.000000
-max        14.000000
-Name: BookingID, dtype: float64
 </pre></div>
 </div>
 </div>
