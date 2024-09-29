@@ -1,0 +1,1450 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data preparation cambiado &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Time series - 202430" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Time series - 202430
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data preparation cambiado</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data preparation cambiado</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion">1. Justificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limpieza-de-datos">2. Limpieza de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-los-datos">3. Exploración de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-para-el-top-5-mejores-clientes">Nivel de servicio para el Top 5 mejores clientes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-por-conductor">Nivel de servicio por conductor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-materiales-transportados-por-los-conductores">Análisis de materiales transportados por los conductores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-la-serie-de-tiempo">4. Preparación de la serie de tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-en-el-tiempo-del-nivel-de-servicio">Cambios en el tiempo del nivel de servicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargas-reservadas-al-dia-por-los-despachadores">Cargas reservadas al día por los despachadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-cargas-planeadas-por-entregar-por-dia">Número de cargas planeadas por entregar por día</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-eda-serie-de-tiempo">5. Análisis Exploratorio EDA Serie de Tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#particion-de-la-serie-de-tiempo">Partición de la serie de tiempo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicion-de-la-serie-actual">Decomposición de la serie actual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remuestreo-de-la-serie-de-tiempo">Remuestreo de la serie de tiempo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicion-nueva-serie-de-tiempo">Decomposición nueva serie de tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">6. Conclusiones</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Paquetes utilizados</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa</span> <span class="kn">import</span> <span class="n">seasonal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\numpy\_distributor_init.py:30: UserWarning: loaded more than 1 DLL from .libs:
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\numpy\.libs\libopenblas64__v0.3.21-gcc_10_3_0.dll
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\numpy\.libs\libopenblas64__v0.3.23-246-g3d31191b-gcc_10_3_0.dll
+  warnings.warn(&quot;loaded more than 1 DLL from .libs:&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="data-preparation-cambiado">
+<h1>Data preparation cambiado<a class="headerlink" href="#data-preparation-cambiado" title="Link to this heading">#</a></h1>
+<section id="justificacion">
+<h2>1. Justificación<a class="headerlink" href="#justificacion" title="Link to this heading">#</a></h2>
+<p>Para este estudio de series de tiempo, utilizamos una base de datos que describe las cargas transportadas por una empresa. En mi rol actual como coordinadora de operaciones, estoy involucrada en un análisis detallado de una empresa de transporte de cargas en Estados Unidos. Se ha observado que los tiempos de entrega no coinciden con las expectativas de los clientes, lo que ha afectado negativamente el nivel de servicio. Por ello, considero que esta base de datos es muy relevante para el análisis que realizaremos.</p>
+<p>La <a class="reference external" href="https://www.kaggle.com/datasets/ramakrishnanthiyagu/delivery-truck-trips-data">base de datos</a> (Ram Thiagu, 2018) incluye información clave, como la fecha de reserva de la carga, la fecha real de inicio del viaje, la fecha de entrega esperada y la fecha de entrega real. Además, contiene códigos de identificación para el camión, el conductor y el cliente asociados a cada carga.</p>
+<p>En una primera fase, realizaremos un Análisis Exploratorio de Datos (EDA) para identificar patrones como los conductores con mayor cantidad de demoras y la tasa de servicio por cliente, entre otros. Posteriormente, el análisis de series de tiempo nos permitirá evaluar la demanda frente a la capacidad. El seguimiento de los camiones implica la presencia de despachadores disponibles para revisar el estado de los viajes, los conductores y los camiones. En promedio, la industria suele operar con un despachador por cada 10 camiones. Además, la cantidad de cargas requiere un número adecuado de camiones disponibles para su transporte.</p>
+<p>Algunas consideraciones para este análisis son:</p>
+<ol class="arabic simple">
+<li><p>Se asumirá que todas las cargas son FTL (Full Truck Load), es decir, cada carga requiere un camión exclusivo, sin posibilidad de consolidación.</p></li>
+<li><p>Se asumirá que los retrasos tanto en la entrega como en la recogida afectan el nivel de servicio. Sin embargo solo podemos analizar con respecto a retrasos en la entrega, pues no conocemos cuál es la fecha ideal de recogida y no podemos comparar.</p></li>
+<li><p>Según el autor de la base de datos la variable trip_end_date no es un dato acertado para conocer la hora de llegada del conductor, por lo que no será tenida en cuenta en el estudio</p></li>
+</ol>
+</section>
+<section id="limpieza-de-datos">
+<h2>2. Limpieza de datos<a class="headerlink" href="#limpieza-de-datos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Delivery truck trip data (1).xlsx&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Market/Regular &#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Regular&#39;</span><span class="p">]</span> 
+<span class="c1">#Regular significa carga contratada, en mi caso se manejan cargas &quot;Market&quot; es decir del día a día, sin embargo esto es menor cantidad de datos para el análisis</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este dataframe también tenemos la información de las ciudades de entrega y recogida, así como latitud, longitud, sin embargo no realizaremos un análisis espacial, por lo que estás columnas serán eliminadas del dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">,</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">,</span> <span class="s1">&#39;trip_start_date&#39;</span><span class="p">,</span> <span class="s1">&#39;Planned_ETA&#39;</span><span class="p">,</span><span class="s1">&#39;Data_Ping_time&#39;</span><span class="p">,</span><span class="s1">&#39;actual_eta&#39;</span><span class="p">,</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;TRANSPORTATION_DISTANCE_IN_KM&#39;</span><span class="p">,</span><span class="s1">&#39;Driver_Name&#39;</span><span class="p">,</span><span class="s1">&#39;customerID&#39;</span><span class="p">,</span><span class="s1">&#39;Material Shipped&#39;</span><span class="p">,</span><span class="s1">&#39;vehicle_no&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La fecha de inicio del análisis es:&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La fecha de finalización del análisis es:&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 año y apróximadamente 9 meses&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La fecha de inicio del análisis es: 2019-03-18 12:19:22
+La fecha de finalización del análisis es: 2020-12-03 13:10:21
+1 año y apróximadamente 9 meses
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hay&quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;actual_eta&#39;</span><span class="p">])]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s2">&quot;cargas que todavía no han sido entregadas&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hay 37 cargas que todavía no han sido entregadas
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para este caso en que tenemos cargas cuya fecha de entrega no ha sido confirmada, podemos comparar con respecto al ping_date, que es una variable de la base de datos tomada del GPS del camión, en USA conocido como ELD (Electronic Logging Device). Si el ping_date es mayor al planned_ETA significa que la carga está retrasada.</p>
+<p>Sin embargo, si es menor, deberíamos entrar a un análisis de lugar actual vs lugar de destino, calcular las millas que separan ambas locaciones, calcular las horas de manejo esperadas y revisar con respecto a las Log Hours del conductor cuántos días significa. En USA un conductor no puede manejar más de 11 horas seguidas durante un día, por lo que si faltaran 15 horas de manejo significarían dos días más de espera sumados a la fecha dictada por la variable de ping_date. Dado que 1) este análisis requiere de un manejo de coordenadas y distancias y 2) desconocemos la reglamentación de India, que parece ser el lugar de análisis de esta base de datos, estos casos los eliminaremos de nuestro dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delay</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;actual_eta&#39;</span><span class="p">])][</span><span class="s1">&#39;Data_Ping_time&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;actual_eta&#39;</span><span class="p">])][</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">])</span>
+<span class="c1">#26 cargas True</span>
+<span class="c1">#.index #Todas las filas que tengan valor True son cargas retrasadas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">delay</span><span class="p">[</span><span class="n">delay</span><span class="o">==</span><span class="kc">True</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;R&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de cargas antes de eliminar las que desconocemos su horario de entrega&quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">delay</span><span class="p">[</span><span class="n">delay</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Número de cargas después de eliminar las que desconocemos su horario de entrega&quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Se borraron 11 cargas, seguimos con 6800 datos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Número de cargas antes de eliminar las que desconocemos su horario de entrega (6811, 12)
+Número de cargas después de eliminar las que desconocemos su horario de entrega (6800, 12)
+Se borraron 11 cargas, seguimos con 6800 datos
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]),</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;On time&#39;</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;delay&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="s1">&#39;Delayed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hay&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;vehicle_no&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s2">&quot;camiones en todo el periodo de análisis&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hay&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Driver_Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s2">&quot;conductores en todo el periodo de análisis&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hay&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;customerID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s2">&quot;clientes únicos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hay 2303 camiones en todo el periodo de análisis
+Hay 1354 conductores en todo el periodo de análisis
+Hay 36 clientes únicos
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exploracion-de-los-datos">
+<h2>3. Exploración de los datos<a class="headerlink" href="#exploracion-de-los-datos" title="Link to this heading">#</a></h2>
+<p>Ya teniendo la base de datos limpia, con la información que necesitamos, podemos realizar un análisis corto de los datos. En esta primera exploración buscamos entender qué información hay detrás del comportamiento de las cargas de esta empresa, un primer estudio de las variables y su comportamiento.</p>
+<section id="nivel-de-servicio-para-el-top-5-mejores-clientes">
+<h3>Nivel de servicio para el Top 5 mejores clientes<a class="headerlink" href="#nivel-de-servicio-para-el-top-5-mejores-clientes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">piv1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;customerID&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Delayed&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+<span class="n">piv1</span> <span class="o">=</span> <span class="n">piv1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Porcentaje de cargas transportadas para nuestro mejor cliente:&quot;</span><span class="p">,(</span><span class="mi">4092</span><span class="o">/</span><span class="mi">6800</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Porcentaje de cargas transportadas para nuestro mejor cliente: 60.1764705882353
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">piv1</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;customerID&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Delayed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Delayed loads&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">piv1</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;customerID&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;On time&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;On time loads&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">piv1</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;customerID&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Customer ID&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Delayed and On Time Cargas with Service Level (%) for Top 5 Customers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
+</pre></div>
+</div>
+<img alt="_images/822e34b3f95fc45d8e4cafad6063b59607a80649cfdee29727ff50891759b56f.png" src="_images/822e34b3f95fc45d8e4cafad6063b59607a80649cfdee29727ff50891759b56f.png" />
+</div>
+</div>
+<p>Con este análisis queda claro que el cliente que mayor número de cargas supone para la compañía con un 60.17%, recibe el segundo peor nivel de servicio de nuestro top 5 mejores clientes. Experimentó retraso en la entrega en 2851 ocasiones, solo en el 30.3% de cargas transportadas con nosotros recibió un nivel de servicio aceptable (Entendiendo nivel de servicio como sin retraso en la fecha de entrega planeada). Todos los clientes de nuestro top 5 han percibido demoras en la operación.</p>
+<p>De este análisis se pueden desprender la tasa de retiro de los clientes en el tiempo, por ejemplo, o la reducción de la demanda de nuestros servicios en el tiempo. Por ahora no revisaremos cómo ha ido disminuyendo la cantidad de interés de nuestros clientes por nuestra empresa. Sino un análisis de capacidad para conocer si la flota de camiones, que al parecer es bastante alta, presenta problemas de cobertura o si por el contrario el seguimiento de las operaciones por parte de los despachadores a cargo, no está siendo eficiente y distintos conductores no tienen una corrección de ruta a tiempo.</p>
+</section>
+<section id="nivel-de-servicio-por-conductor">
+<h3>Nivel de servicio por conductor<a class="headerlink" href="#nivel-de-servicio-por-conductor" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">piv1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Driver_Name&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Delayed&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+<span class="n">piv1</span> <span class="o">=</span> <span class="n">piv1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">piv1</span><span class="o">=</span><span class="n">piv1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#los que han llevado mayor cantidad de cargas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">piv1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Driver_Name&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Delayed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Delayed loads&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">piv1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Driver_Name&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;On time&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;On time loads&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">piv1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Driver_Name&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Customer ID&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Delayed and On Time Cargas with Service Level (%) for Top 5 Customers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
+  if pd.api.types.is_categorical_dtype(vector):
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
+C:\Users\karen\anaconda3\envs\myenv\lib\site-packages\seaborn\_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
+  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
+</pre></div>
+</div>
+<img alt="_images/1190fae30b3d3c9abf9a9c89554fb6aeb9d9208284eea5d45e1a52332929a15f.png" src="_images/1190fae30b3d3c9abf9a9c89554fb6aeb9d9208284eea5d45e1a52332929a15f.png" />
+</div>
+</div>
+<p>Si bien es cierto, no en todas las cargas se conoce el conductor asignado, al menos en este análisis de 3440 cargas, nos permite ver que el top 10 conductores que más cargas transportan tienen un nivel de servicio por encima del 90%. Estos datos los puede utilizar la empresa como input para bonificaciones, programas de fidelización del empleado, entre otros. En el caso de los conductores de bajo nivel de servicio es adecuado conocer qué despachador monitorea su operación y hacer un seguimiento más cercanos de las decisiones operativas que se toman durante la ejecución de la ruta, con el fin de determinar qué genera los retrasos y que acciones rápidas de reprogramación o para evitar retrasos no se están tomando a tiempo.</p>
+</section>
+<section id="analisis-de-materiales-transportados-por-los-conductores">
+<h3>Análisis de materiales transportados por los conductores<a class="headerlink" href="#analisis-de-materiales-transportados-por-los-conductores" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">piv1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Material Shipped&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span> <span class="s2">&quot;delay&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Delayed&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+<span class="n">piv1</span> <span class="o">=</span> <span class="n">piv1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;freq_relativa&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">6800</span>
+<span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;acum&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;freq_relativa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">piv1</span><span class="o">=</span><span class="n">piv1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">piv1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>delay</th>
+      <th>Material Shipped</th>
+      <th>Delayed</th>
+      <th>On time</th>
+      <th>Total</th>
+      <th>Service level (%)</th>
+      <th>freq_relativa</th>
+      <th>acum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>86</th>
+      <td>AUTO PARTS</td>
+      <td>1089</td>
+      <td>407</td>
+      <td>1496</td>
+      <td>0.272059</td>
+      <td>0.220000</td>
+      <td>0.220000</td>
+    </tr>
+    <tr>
+      <th>476</th>
+      <td>GRS STARTER</td>
+      <td>216</td>
+      <td>35</td>
+      <td>251</td>
+      <td>0.139442</td>
+      <td>0.036912</td>
+      <td>0.256912</td>
+    </tr>
+    <tr>
+      <th>785</th>
+      <td>M70 STARTER MOTOR 12V 0.9KW</td>
+      <td>126</td>
+      <td>89</td>
+      <td>215</td>
+      <td>0.413953</td>
+      <td>0.031618</td>
+      <td>0.288529</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>EMPTY TRAYS</td>
+      <td>124</td>
+      <td>47</td>
+      <td>171</td>
+      <td>0.274854</td>
+      <td>0.025147</td>
+      <td>0.313676</td>
+    </tr>
+    <tr>
+      <th>1034</th>
+      <td>SIA114 12V 70A ALTERNATOR</td>
+      <td>104</td>
+      <td>55</td>
+      <td>159</td>
+      <td>0.345912</td>
+      <td>0.023382</td>
+      <td>0.337059</td>
+    </tr>
+    <tr>
+      <th>1082</th>
+      <td>SPARE PARTS AUTOMOBILE</td>
+      <td>110</td>
+      <td>44</td>
+      <td>154</td>
+      <td>0.285714</td>
+      <td>0.022647</td>
+      <td>0.359706</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>A114 Alternator(New Versa)</td>
+      <td>60</td>
+      <td>86</td>
+      <td>146</td>
+      <td>0.589041</td>
+      <td>0.021471</td>
+      <td>0.381176</td>
+    </tr>
+    <tr>
+      <th>386</th>
+      <td>Empty trays</td>
+      <td>64</td>
+      <td>29</td>
+      <td>93</td>
+      <td>0.311828</td>
+      <td>0.013676</td>
+      <td>0.394853</td>
+    </tr>
+    <tr>
+      <th>351</th>
+      <td>EMPTY BIN</td>
+      <td>23</td>
+      <td>41</td>
+      <td>64</td>
+      <td>0.640625</td>
+      <td>0.009412</td>
+      <td>0.404265</td>
+    </tr>
+    <tr>
+      <th>1065</th>
+      <td>SOLENOID SWITCH</td>
+      <td>40</td>
+      <td>12</td>
+      <td>52</td>
+      <td>0.230769</td>
+      <td>0.007647</td>
+      <td>0.411912</td>
+    </tr>
+    <tr>
+      <th>1059</th>
+      <td>SOLENOID ASSEMBLY</td>
+      <td>34</td>
+      <td>14</td>
+      <td>48</td>
+      <td>0.291667</td>
+      <td>0.007059</td>
+      <td>0.418971</td>
+    </tr>
+    <tr>
+      <th>1263</th>
+      <td>WIPER MOTOR LINK</td>
+      <td>36</td>
+      <td>12</td>
+      <td>48</td>
+      <td>0.250000</td>
+      <td>0.007059</td>
+      <td>0.426029</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td>EMPTY FOAM</td>
+      <td>29</td>
+      <td>16</td>
+      <td>45</td>
+      <td>0.355556</td>
+      <td>0.006618</td>
+      <td>0.432647</td>
+    </tr>
+    <tr>
+      <th>1087</th>
+      <td>SPINDLE ASSY</td>
+      <td>27</td>
+      <td>7</td>
+      <td>34</td>
+      <td>0.205882</td>
+      <td>0.005000</td>
+      <td>0.437647</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Material Shipped&#39;</span><span class="p">],</span> <span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Material Shipped&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;Material Shipped&#39;</span><span class="p">],</span> <span class="n">piv1</span><span class="p">[</span><span class="s1">&#39;acum&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cumulative Percentage (%)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Percentage (%)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pareto Chart of Material Shipped&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f63d63067a76d4cbb13035a601123456721654778173af6816be72c03b785c41.png" src="_images/f63d63067a76d4cbb13035a601123456721654778173af6816be72c03b785c41.png" />
+</div>
+</div>
+<p>Con este resultado, concluimos que las auto parts presentan alto nivel de demanda en la empresa y de los 1496 transportes que se han realizado de este tipo de carga, solo el 27.2% ha sido entregado a tiempo. Cualquier modificación que se realice al flujo actual de operación se debe testear/revisar/verificar durante el envío de este tipo de carga, para conocer si el cambio surgió efecto y permite mejorar el tiempo de entrega de las ‘autoparts’. En este punto también se pueden proponer mejoras en cuanto al tipo de vehículo que está transportando este material, puede ser requerido alguno que genere entregas más expeditas, de menor tamaño, como un cargo van y no vehículos de 40 o 53 pies, cuya maniobra en algunos lugares puede resultar costosa, lenta y peligrosa.</p>
+</section>
+</section>
+<section id="preparacion-de-la-serie-de-tiempo">
+<h2>4. Preparación de la serie de tiempo<a class="headerlink" href="#preparacion-de-la-serie-de-tiempo" title="Link to this heading">#</a></h2>
+<p>En este estudio, no tendremos en cuentas las sugerencias de mejoras planteadas durante el análisis exploratorio. Sino que observaremos el análisis de capacidad/demanda en el tiempo, que parece ser el verdadero problema de raíz de la empresa. No en la cantidad de conductores y camiones disponibles, pero en la planeación, ejecución y seguimiento de las rutas. Para eso prepararemos nuestros datos en el formato que una serie de tiempo lo requiere.</p>
+<section id="cambios-en-el-tiempo-del-nivel-de-servicio">
+<h3>Cambios en el tiempo del nivel de servicio<a class="headerlink" href="#cambios-en-el-tiempo-del-nivel-de-servicio" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span> <span class="s1">&#39;BookingID&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span><span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">])</span>
+<span class="n">ts1</span> <span class="o">=</span> <span class="n">ts1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">)</span>
+<span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;Delayed&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;On time&#39;</span><span class="p">]</span>
+<span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;Delayed&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">])</span>
+<span class="n">ts1</span> <span class="o">=</span> <span class="n">ts1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">],</span> <span class="n">ts1</span><span class="p">[</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Service level (%)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Service Level (%) Over Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Service Level (%)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/23e477172b60e3d104ea0af5428490d6f75df382c8f11238414d5aca2c4148ff.png" src="_images/23e477172b60e3d104ea0af5428490d6f75df382c8f11238414d5aca2c4148ff.png" />
+</div>
+</div>
+<p>Se observa en esta serie de tiempo que una primera parte del tiempo la empresa mantenía en mayor medida niveles de servicios bajos, donde el período de abril a julio de 2019 la mayor cantidad de casos presentaban niveles de servicios por debajo del 50%. En una segunda instancia, desde Julio hasta apróximadamante mayo de 2020, el nivel de servicio estuvo rondando en gran parte de los casos un 100%. Mientras que una tercera etapa de Mayo en adelante, existe mayor variabilidad entre el cumplimiento de nivel de servicio.</p>
+</section>
+<section id="cargas-reservadas-al-dia-por-los-despachadores">
+<h3>Cargas reservadas al día por los despachadores<a class="headerlink" href="#cargas-reservadas-al-dia-por-los-despachadores" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts2</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span> <span class="s1">&#39;BookingID&#39;</span><span class="p">,</span><span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">])</span>
+<span class="n">ts2</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">],</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Booking Count&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Booking Counts Over Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Booking Count&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c28238bacfcf18f9f7fcfab3718eff5096ca2b5041021f4f9d861cd645bc2790.png" src="_images/c28238bacfcf18f9f7fcfab3718eff5096ca2b5041021f4f9d861cd645bc2790.png" />
+</div>
+</div>
+<p>Esta es la primera serie de tiempo propuesta para el análisis. Corresponde al número de cargas reservadas por día en el período de un año y casi 9 meses de nuestra base de datos. Hay 3 etapas en esta serie de tiempo, lo decimos de esa forma por el período de Agosto a Noviembre de 2019 y el de enero a mayo de 2020, que separan la serie de tiempo en 3 momentos de análisis.</p>
+<p>Observamos que aunque en la primera etapa donde el nivel de servicio fue bajo alto número de cargas eran reservadas al día, esta mala tasa de servicio no parece impactar visualmente el número de cargaas posibles reservadas al día por la compañía en la segunda etapa, pero sí posible la confiabilidad de los usuarios sobre ella. En una tercera etapa, el número de cargas parece aumentar en varias ocasiones con respecto a los dos primeros períodos.</p>
+<p><em>Considerando que son cargas contratadas puede ser porque en el segundo periodo se mejoró el nivel de servicio y por ende la confiabilidad de los clientes sobre las operaciones.</em></p>
+</section>
+<section id="numero-de-cargas-planeadas-por-entregar-por-dia">
+<h3>Número de cargas planeadas por entregar por día<a class="headerlink" href="#numero-de-cargas-planeadas-por-entregar-por-dia" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts3</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span> <span class="s1">&#39;BookingID&#39;</span><span class="p">,</span><span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">ts3</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts3</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">])</span>
+<span class="n">ts3</span> <span class="o">=</span> <span class="n">ts3</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este punto observamos un comportamiento extraño en la serie de tiempo y notamos que hay dos valores que escaparon de la limpieza de dactos en la columna de “Planned_ETA” por lo cual los eliminaremos. Porque no solo se presentan mal calculados en esta columna, sino tambien en el “actual_eta” y “trip_start_date”, por lo que resulta complicado revisar directamente, sin un análisis de coordenadas, si realmente son cargas demoradas y porque directamete nuestra columna de referencia de entrega a tiempo es la columna de “Planned_ETA”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">])</span>
+<span class="n">min_booking_date</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_booking_date</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1">#Continuamos con 6798 datos</span>
+
+<span class="n">ts3</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span> <span class="s1">&#39;BookingID&#39;</span><span class="p">,</span><span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">ts3</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts3</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">])</span>
+<span class="n">ts3</span> <span class="o">=</span> <span class="n">ts3</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts3</span><span class="p">[</span><span class="s1">&#39;Planned_ETA&#39;</span><span class="p">],</span> <span class="n">ts3</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Delivery Count&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Delivery Counts Over Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Delivery Count&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a8373cfe508ed7791f29acc9ed4b0244513b4d148341007be53aa596730b5f12.png" src="_images/a8373cfe508ed7791f29acc9ed4b0244513b4d148341007be53aa596730b5f12.png" />
+</div>
+</div>
+<p>Como era de esperarse, a mayor número de cargas reservadas, mayor es la cantidad de cargas que se planean entregar, comportamiento resultante en el período 3. Este punto es super importante, porque supone el análisis de la capacidad que tengo disponible, lo que ya gasté de recurso y la nueva demanda que surge a diario. Debo poder con mi parte operativa, reservar, negociar, monitorear y cobrar facturas de las cargas que entrego. Si los depsachadores realizan todo esto en simultáneo y supone un problema en la completitud del servicio existe un problema de capacidad operativa por solucionar. Este análisis de serie de tiempo nos podría apoyar en la estimación de esa demanada que requiero por día de conductores y despachadores.</p>
+</section>
+</section>
+<section id="analisis-exploratorio-eda-serie-de-tiempo">
+<h2>5. Análisis Exploratorio EDA Serie de Tiempo<a class="headerlink" href="#analisis-exploratorio-eda-serie-de-tiempo" title="Link to this heading">#</a></h2>
+<p>La serie de tiempo sobre la cual realizaremos los análisis será ts2 “Serie de Tiempo Cargas Reservadas por día”, con el fin de determinar si se están comprometiendo al transporte de más cargas de las que la empresa puede cubrir. En este punto buscamos descomponer la serie temporal en sus componentes de tendencia, estacaionalidad y ciclos si existieran. Identificar patrones en la serie y predecir valores futuros que tomaría cada una, nos permitiría preparar los requerimientos de personal y recurso para cumplir con el nivel de servicio en cada caso.</p>
+<section id="particion-de-la-serie-de-tiempo">
+<h3>Partición de la serie de tiempo<a class="headerlink" href="#particion-de-la-serie-de-tiempo" title="Link to this heading">#</a></h3>
+<p>El primer paso será revisar la cantidad de datos que tendríamos si separarámos los 3 períodos que hemos mencionado anteriormente. Los puntos de corte serán:</p>
+<ol class="arabic simple">
+<li><p>Septiembre de 2019</p></li>
+<li><p>Abril de 2020</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts21</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="s1">&#39;2019-09-01&#39;</span><span class="p">]</span> <span class="c1">#997 datos</span>
+<span class="n">ts22</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s1">&#39;2019-09-01&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="s1">&#39;2020-04-01&#39;</span><span class="p">)]</span> <span class="c1">#2240 datos</span>
+<span class="n">ts23</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s1">&#39;2020-04-01&#39;</span><span class="p">]</span> <span class="c1">#2689 datos</span>
+
+<span class="n">ts2</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="s1">&#39;2019-09-01&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A priori tomaremos la serie de tiempo desde septiembre de 2019. Esto dado que notamos en el análisis del nivel de servicio que la empresa presentaba muy bajos niveles durante ese período aspecto que cambió para el corte 2 y 3. Esto reduce la base de datos en 997 datos, por lo que continuaremos entonces con 4929.</p>
+</section>
+<section id="decomposicion-de-la-serie-actual">
+<h3>Decomposición de la serie actual<a class="headerlink" href="#decomposicion-de-la-serie-actual" title="Link to this heading">#</a></h3>
+<p>Exploremos el comportamiento de la serie actualmente, y verifiquemos si existen tendencias o estacionalidades en los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">index</span>
+<span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<span class="n">ts2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span>
+<span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frecuencia: &quot;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">index</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ts2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\envs\myenv\lib\site-packages\pandas\core\generic.py:6202,</span> in <span class="ni">NDFrame.__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6195</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">6196</span>     <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_internal_names_set</span>
+<span class="g g-Whitespace">   </span><span class="mi">6197</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span>
+<span class="g g-Whitespace">   </span><span class="mi">6198</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
+<span class="g g-Whitespace">   </span><span class="mi">6199</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6200</span> <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">6201</span>     <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">6202</span> <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\envs\myenv\lib\site-packages\pandas\core\accessor.py:224,</span> in <span class="ni">CachedAccessor.__get__</span><span class="nt">(self, obj, cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span> <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="c1"># we&#39;re accessing the attribute of the class, i.e., Dataset.geo</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span>
+<span class="ne">--&gt; </span><span class="mi">224</span> <span class="n">accessor_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessor</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="c1"># Replace the property with the accessor object. Inspired by:</span>
+<span class="g g-Whitespace">    </span><span class="mi">226</span> <span class="c1"># https://www.pydanny.com/cached-property.html</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="c1"># We need to use object.__setattr__ because we overwrite __setattr__ on</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span> <span class="c1"># NDFrame</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="n">accessor_obj</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\envs\myenv\lib\site-packages\pandas\core\indexes\accessors.py:608,</span> in <span class="ni">CombinedDatetimelikeProperties.__new__</span><span class="nt">(cls, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">PeriodDtype</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>     <span class="k">return</span> <span class="n">PeriodProperties</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">608</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Can only use .dt accessor with datetimelike values&quot;</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: Can only use .dt accessor with datetimelike values
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts23</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts23</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<span class="n">ts23</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts23</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span>
+<span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">ts23</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frecuencia: &quot;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frecuencia:  None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts22</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts22</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+<span class="n">ts22</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts22</span><span class="p">[</span><span class="s1">&#39;BookingID_Date_fix&#39;</span><span class="p">]</span>
+<span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">ts22</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frecuencia: &quot;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frecuencia:  None
+</pre></div>
+</div>
+</div>
+</div>
+<p>No se identifica en la serie de tiempo general ni tampoco en los subconjuntos de la serie que determinamos, que exista una frecuencia de repetición de algún patrón. Esto se debe a la variabilidad de los datos y también al comportamiento no continuo de la operación.</p>
+<p>Lo que sí pudiéramos encontrar serían patrones estacionales, dado que el comportamiento de la demanda por servicios de transporte varía durante el año y encuentra picos dependiendo en qué estación se encuentra el país, inversiones gubernamentales en ciertos cuartiles, entre otras cosas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trend_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">trend_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">])</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">trend_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">],</span> <span class="n">pred</span><span class="p">)</span>
+<span class="n">r2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.002102082665802807
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residuals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="n">trend_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residuals of trend model for loads booked per day&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loads booked&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-20.,   0.,  20.,  40.,  60.,  80., 100.]),
+ [Text(-20.0, 0, &#39;2020-07&#39;),
+  Text(0.0, 0, &#39;2019-03&#39;),
+  Text(20.0, 0, &#39;2019-08&#39;),
+  Text(40.0, 0, &#39;2019-12&#39;),
+  Text(60.0, 0, &#39;2020-05&#39;),
+  Text(80.0, 0, &#39;2020-10&#39;),
+  Text(100.0, 0, &#39;&#39;)])
+</pre></div>
+</div>
+<img alt="_images/3aa477718ee5cd1caf1bc1493711d78a4b09e31e9f7dd57242e49aa5eac16eed.png" src="_images/3aa477718ee5cd1caf1bc1493711d78a4b09e31e9f7dd57242e49aa5eac16eed.png" />
+</div>
+</div>
+<p>El R2 del modelo de regresión lineal es bastante bajo, no se ajusta en absoluto a los valores de la serie de tiempo. No existe ni tendencia ni estacionalidad en los datos. Comprobemos qué dicta la prueba de Dickey-Fuller con respecto a la estacionariedad de esta serie.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#H0: La serie no es estacionaria</span>
+<span class="c1">#H1: La serie es estacionaria</span>
+<span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+<span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso la serie es estacionaria. Ya comprobamos con esto porqué en definitiva no muestra tendencias y estacionalidades. Podemos realizar un análisis de cuartiles para ver mejor su comportamiento.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">]</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+<span class="n">series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observando este comportamiento en cuartiles, podría resultar adecuado hacer un remuestreo de los datos de diarios a semanales. Con el fin de aumentar la cantidad de cargas reservadas en cada observación.</p>
+</section>
+<section id="remuestreo-de-la-serie-de-tiempo">
+<h3>Remuestreo de la serie de tiempo<a class="headerlink" href="#remuestreo-de-la-serie-de-tiempo" title="Link to this heading">#</a></h3>
+<p>Dado que existen varios días de la serie de tiempo que no tienen cargas reservadas y se convierten en puntos muertos a lo largo del tiempo, los datos se están sesgando a una media de 1 y picos de comportamiento no pueden ser identificados fácilmente. Con el fin de mejorar las observaciones, realizaremos una agrupación semanal de los datos. Si ese es el caso, entonces podemos hacer un análisis con toda la serie de tiempo que teníamos antes, agregando el período 1, entendiendo que para identificar patrones estacionales, es necesario equiparar el pasado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts2</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span> <span class="s1">&#39;BookingID&#39;</span><span class="p">,</span><span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">])</span>
+<span class="n">ts2</span> <span class="o">=</span> <span class="n">ts2</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID_Date&#39;</span><span class="p">]</span>
+<span class="n">ts2_r</span> <span class="o">=</span> <span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ts2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ts2_r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ts2_r</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Total Loads Booked per Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loads booked&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/775b9e449124d74504a4b2c9c37714b0e043576818de7b82fad49bf19c974614.png" src="_images/775b9e449124d74504a4b2c9c37714b0e043576818de7b82fad49bf19c974614.png" />
+</div>
+</div>
+</section>
+<section id="decomposicion-nueva-serie-de-tiempo">
+<h3>Decomposición nueva serie de tiempo<a class="headerlink" href="#decomposicion-nueva-serie-de-tiempo" title="Link to this heading">#</a></h3>
+<p>Dado que se ha modificado la serie de tiempo analizada, procederemos a realizar nuevamente una decomposición para conocer si existe algún componente de estacionalidad o tendencia o si la serie es estacionaria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#H0: La serie no es estacionaria</span>
+<span class="c1">#H1: La serie es estacionaria</span>
+<span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+<span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11794883732355421
+</pre></div>
+</div>
+</div>
+</div>
+<p>El p_valor en la prueba Dickey-Fuller en esta ocasión es mayor a 0.05, por lo que no rechaza la hipótesis nula y concluye que la serie no es estacionaria. En este nuevo análisis, haremos uso de <a class="reference external" href="http://statsmodel.sa">statsmodel.sa</a> para descomponer la serie de tiempo en su componente de tendencia, estacionalidad y ruido. Dado que la serie de tiempo está agrupada por semanas, haremos uso de period = 4, para reflejar una posible estacionalidad mensual.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decompose_model</span> <span class="o">=</span> <span class="n">seasonal</span><span class="o">.</span><span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">BookingID</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">period</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;additive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">)</span>
+
+<span class="n">ts2</span><span class="p">[</span><span class="s1">&#39;BookingID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Weekly loads booking&#39;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">decompose_model</span><span class="o">.</span><span class="n">trend</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Trend component in weekly booking&#39;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">decompose_model</span><span class="o">.</span><span class="n">seasonal</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Seasonal component in weekly booking&#39;</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">decompose_model</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ts2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axarr</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">axarr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Irregular variations in weekly booking&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">w_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">h_pad</span><span class="o">=</span><span class="mf">2.0</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/83602baaaf402c9e56a11745dd0ecb931a9d4f09478ed19aa755ec70c6858962.png" src="_images/83602baaaf402c9e56a11745dd0ecb931a9d4f09478ed19aa755ec70c6858962.png" />
+</div>
+</div>
+<p>Algunos períodos en la serie de tiempo muestran tendencia,sobre todo el correspondiente a la tercera partición. Además, aparentemente existe un patrón estacional mensual en la serie, lo que es congruente con las estacionalidades que suelen existir en la demanda de distintos productos o servicios.</p>
+</section>
+</section>
+<section id="conclusiones">
+<h2>6. Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>El análisis exploratorio de los datos permitió identificar que era necesario agrupar los datos por semana dada la variabilidad diaria de la demanda por transporte de las cargas. Con el fin de reducir el impacto en la reducción de los datos por la agrupación, se hizo uso de toda la serie de tiempo disponible y se encontró en el análisis de componentes que en algunos períodos de tiempo existe tendencias a la alza y que hay un componente de estacionalidad marcado en la serie.</p>
+<p>Esto del análisis de las fechas de entrega y reserva de carga, además debe estar acompañado con un análisis en el tiempo de la cantidad de camiones y conductores con que cuento para cada etapa, en su retención, adquisición o despido/venta del recurso. Esto podría suponer la integración de distintas series de tiempo que influyen la una sobre la otra. La cantidad de cargas reservadas con respecto a la cantidad de cargas que se deben entregar por día y la cantidad de recursos que utilizo y requiero para ir cumpliendo con esas entregas.</p>
+<p>El enfoque en revisión de literatura que continúa estará enfocado en la predicción y manejo de la demanda por servicios de transporte que se han presentado anteriormente. Con la base de datos que tenemos podemos conectar la seris de tiempo de los recursos con la serie de tiempo de la demanda, que fue la analizada durante esta entrega. Modelos como por ejemplo: VAR, SARIMAX, entre otros, permiten predecir la serie de tiempo de una variable con respecto a la interacción de varias series de tiempo que parten de variables exógenas.</p>
+<p>Un posible output de un modelo de serie de tiempo para este caso de estudio, me permitiría entonces conocer cómo se comportará el nivel de servicio para mis clientes. De manera que yo pueda predecirlo si mejoras en la planeación de las rutas, despacho de las cargas y reducción del desperdicio de tiempo por parte de los conductores son aplicadas. Un buen nivel de servicio me permite asegurar la confiabilidad que tengan sobre mi operación y la rentabilidad y competitividad en el mercado de mi empresa. Continuemos entonces en el siguiente capítulo con la revisión de literatura.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Time series - 202430</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion">1. Justificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limpieza-de-datos">2. Limpieza de datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploracion-de-los-datos">3. Exploración de los datos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-para-el-top-5-mejores-clientes">Nivel de servicio para el Top 5 mejores clientes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-de-servicio-por-conductor">Nivel de servicio por conductor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-materiales-transportados-por-los-conductores">Análisis de materiales transportados por los conductores</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparacion-de-la-serie-de-tiempo">4. Preparación de la serie de tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cambios-en-el-tiempo-del-nivel-de-servicio">Cambios en el tiempo del nivel de servicio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cargas-reservadas-al-dia-por-los-despachadores">Cargas reservadas al día por los despachadores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numero-de-cargas-planeadas-por-entregar-por-dia">Número de cargas planeadas por entregar por día</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-eda-serie-de-tiempo">5. Análisis Exploratorio EDA Serie de Tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#particion-de-la-serie-de-tiempo">Partición de la serie de tiempo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicion-de-la-serie-actual">Decomposición de la serie actual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remuestreo-de-la-serie-de-tiempo">Remuestreo de la serie de tiempo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposicion-nueva-serie-de-tiempo">Decomposición nueva serie de tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">6. Conclusiones</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
